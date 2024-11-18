@@ -1,0 +1,6 @@
+import math
+def magnitude(v: Vector) -> float:
+    """Retourne la magnitude de v."""
+    return math.sqrt(sum_of_squares(v))  # math.sqrt = racine carrée
+    
+assert magnitude([3, 4]) == 5

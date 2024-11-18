@@ -1,0 +1,6 @@
+def vector_mean(vectors: List[Vector]) -> Vector:
+    """Calcule la moyenne élément par élément."""
+    n = len(vectors)
+    return scalar_multiply(1/n, vector_sum(vectors))
+
+assert vector_mean([[1, 2], [3, 4], [5, 6]]) == [3, 4]

@@ -1,0 +1,19 @@
+import random
+
+# Générer un nombre aléatoire entre 0 et 1
+nombre_aleatoire = random.random()
+print(nombre_aleatoire)
+
+# Générer un entier aléatoire entre 1 et 10 (inclus)
+entier_aleatoire = random.randint(1, 10)
+print(entier_aleatoire)
+
+# Mélanger une liste
+liste = [1, 2, 3, 4, 5]
+random.shuffle(liste)
+print(liste)
+
+# Choisir un élément aléatoirement dans une liste
+liste = [1, 2, 3, 4, 5]
+element_choisi = random.choice(liste)
+print(element_choisi)

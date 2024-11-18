@@ -1,0 +1,5 @@
+from typing import List
+Vector = List[float]
+height_weight_age = [70,  # pouces
+                     170, # livres
+                     40]  # années

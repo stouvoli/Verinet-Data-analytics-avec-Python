@@ -1,0 +1,14 @@
+def vector_sum(vectors: List[Vector]) -> Vector:
+    """Fait la somme de tous les éléments correspondants."""
+    # Vérifier que les vecteurs ne sont pas vides.
+    assert vectors, "Aucun vecteur fourni!"
+
+    # Vérifier que les vecteurs sont tous de la même taille.
+    num_elements = len(vectors[0])
+    assert all(len(v) == num_elements for v in vectors), "Tailles différentes!"
+
+    # L'élément i du résultat est la somme des éléments i de chaque vecteur.
+    return [sum(vector[i] for vector in vectors)
+            for i in range(num_elements)]
+
+assert vector_sum([[1, 2], [3, 4], [5, 6], [7, 8]]) == [16, 20]

@@ -1,0 +1,8 @@
+def magic(*args, **kwargs):
+    print("args sans nom :", args)
+    print("args mots-clés :", kwargs)
+
+magic(1, 2, key="word", key2="word2")
+# affiche
+# args sans nom : (1, 2)
+# args mots-clés : {'key2': 'word2', 'key': 'word'}

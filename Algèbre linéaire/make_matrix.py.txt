@@ -1,0 +1,12 @@
+from typing import Callable
+
+def make_matrix(num_rows: int,
+                num_cols: int,
+                entry_fn: Callable[[int, int], float]) -> Matrix:
+    """
+    Retourne une matrice num_rows x num_cols
+    dont l'élément (i,j) est entry_fn(i, j).
+    """
+    return [[entry_fn(i, j)  # Étant donné i, créer une liste
+             for j in range(num_cols)]  # [entry_fn(i, 0), ...]
+            for i in range(num_rows)]  # Créer une liste pour chaque i

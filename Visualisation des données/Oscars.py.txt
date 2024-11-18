@@ -1,0 +1,16 @@
+from matplotlib import pyplot as plt
+
+movies = ["Annie Hall", "Ben-Hur", "Casablanca", "Gandhi", "West Side Story"]
+num_oscars = [5, 11, 3, 8, 10]
+
+# Centrer les bâtons :
+xs = [i + 0.4 for i, _ in enumerate(movies)]  # Décaler de 0.4 (la moitié de la largeur par défaut)
+
+# trace les bâtons avec les coordonnées de gauche sur l'axe des x [xs], hauteurs [num_oscars]
+plt.bar(xs, num_oscars)
+plt.ylabel("Nombre d'Oscars")
+plt.title("Mes films préférés")
+
+# étiquette l'axe des x avec les noms de films au centre des bâtons
+plt.xticks([i + 0.4 for i, _ in enumerate(movies)], movies) # Même décalage pour les étiquettes
+plt.show()

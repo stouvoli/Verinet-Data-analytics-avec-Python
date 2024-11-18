@@ -1,0 +1,8 @@
+from collections import Counter
+# Compter les mots dans un document
+words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']
+word_counts = Counter(words)
+
+# Afficher les 3 mots les plus fréquents
+for word, count in word_counts.most_common(3):
+    print(word, count)

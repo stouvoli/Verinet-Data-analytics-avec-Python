@@ -1,0 +1,9 @@
+# Calculer le carré de chaque nombre dans une liste
+carres = map(lambda x: x**2, [1, 2, 3, 4, 5])
+
+# Filtrer les nombres pairs d'une liste
+pairs = filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5])
+
+# Créer une liste des nombres impairs inférieurs à 10
+impairs = [x for x in range(10) if x % 2 != 0]
+

@@ -1,0 +1,19 @@
+import re
+
+# Vérification 1: 'cat' ne commence pas par 'a'
+check1 = not re.match("a", "cat")  
+
+# Vérification 2: 'cat' possède un 'a'
+check2 = re.search("a", "cat")  
+
+# Vérification 3: 'dog' ne contient pas de 'c'
+check3 = not re.search("c", "dog")  
+
+# Vérification 4: 'carbs' se coupe en 'a' ou 'b' en ['c', 'r', 's']
+check4 = 3 == len(re.split("[ab]", "carbs"))  
+
+# Vérification 5: remplace les chiffres par des tirets dans "R2D2"
+check5 = "R-D-" == re.sub("[0-9]", "-", "R2D2")  
+
+# Afficher si toutes les vérifications sont vraies
+print(check1 and check2 and check3 and check4 and check5)

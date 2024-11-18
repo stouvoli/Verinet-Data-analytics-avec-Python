@@ -1,0 +1,22 @@
+# Création d'un dictionnaire
+grades = {"Joel": 80, "Tim": 95}
+
+# Accès à une valeur
+joels_grade = grades["Joel"]
+print(joels_grade)  # Output: 80
+
+# Vérification d'existence
+joel_has_grade = "Joel" in grades
+print(joel_has_grade)  # Output: True
+
+# Valeur par défaut
+kates_grade = grades.get("Kate", 0)
+print(kates_grade)  # Output: 0
+
+# Modification
+grades["Tim"] = 99
+print(grades)  # Output: {'Joel': 80, 'Tim': 99}
+
+# Itération
+for key, value in grades.items():
+    print(key, value)

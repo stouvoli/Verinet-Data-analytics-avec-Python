@@ -1,0 +1,4 @@
+paires = [(1, 'a'), (2, 'b'), (3, 'c')]
+liste1, liste2 = zip(*paires)
+print(liste1)  # Affiche (1, 2, 3)
+print(liste2)  # Affiche ('a', 'b', 'c')

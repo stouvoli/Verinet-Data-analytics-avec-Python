@@ -1,0 +1,3 @@
+def get_row(A: Matrix, i: int) -> Vector:
+    """Retourne la ligne i de la matrice A (en tant que vecteur)."""
+    return A[i]

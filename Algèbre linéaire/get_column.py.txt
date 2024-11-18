@@ -1,0 +1,4 @@
+def get_column(A: Matrix, j: int) -> Vector:
+    """Retourne la colonne j de la matrice A (en tant que vecteur)."""
+    return [A_i[j]  # Élément j de la ligne A_i
+            for A_i in A]  # Pour chaque ligne A_i

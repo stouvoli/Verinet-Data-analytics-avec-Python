@@ -1,0 +1,9 @@
+from typing import Tuple
+
+def shape(A: Matrix) -> Tuple[int, int]:
+    """Retourne (nombre de lignes de A, nombre de colonnes de A)."""
+    num_rows = len(A)
+    num_cols = len(A[0]) if A else 0  # Nombre d'éléments dans la première ligne
+    return num_rows, num_cols
+
+assert shape([[1, 2, 3], [4, 5, 6]]) == (2, 3)  # 2 lignes, 3 colonnes

@@ -1,0 +1,6 @@
+def somme(x, y, z):
+    return x + y + z
+
+liste = [1, 2, 3]
+resultat = somme(*liste)  # Équivalent à somme(1, 2, 3)
+print(resultat)  # Affiche 6

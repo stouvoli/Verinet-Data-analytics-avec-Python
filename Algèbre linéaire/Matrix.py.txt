@@ -1,0 +1,8 @@
+from typing import List
+
+# Alias de type pour une matrice
+Matrix = List[List[float]]
+
+# Exemple de matrice 2x3 (2 lignes, 3 colonnes)
+A = [[1, 2, 3], 
+     [4, 5, 6]]

@@ -1,0 +1,17 @@
+friends = [70, 65, 72, 63, 71, 64, 60, 64, 67]
+minutes = [175, 170, 205, 120, 220, 130, 105, 145, 190]
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+
+plt.scatter(friends, minutes)
+
+# étiquette chaque point
+for label, friend_count, minute_count in zip(labels, friends, minutes):
+    plt.annotate(label,
+    xy=(friend_count, minute_count), # positionne l'étiquette près du point associé
+    xytext=(5, -5), # avec un léger décalage
+    textcoords='offset points')
+
+plt.title("Minutes par jour / Nombre d'amis")
+plt.xlabel("Nombre d'amis")
+plt.ylabel("Temps quotidien sur le site (min)")
+plt.show()

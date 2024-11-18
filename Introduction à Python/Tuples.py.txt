@@ -1,0 +1,18 @@
+# Création de tuples
+my_tuple = (1, 2)
+other_tuple = 3, 4
+
+# Assignations multiples
+x, y = 1, 2
+print(x, y)  # Output: 1 2
+
+# Échange de valeurs
+x, y = y, x
+print(x, y)  # Output: 2 1
+
+# Fonction retournant un tuple
+def sum_and_product(x, y):
+    return (x + y), (x * y)
+
+s, p = sum_and_product(2, 3)
+print(s, p)  # Output: 5 6

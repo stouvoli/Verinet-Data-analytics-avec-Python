@@ -1,0 +1,13 @@
+def squared_distance(v: Vector, w: Vector) -> float:
+    """Calcule (v_1 - w_1) ** 2 + ... + (v_n - w_n) ** 2."""
+    return sum_of_squares(subtract(v, w))
+
+def distance(v: Vector, w: Vector) -> float:
+    """Calcule la distance entre v et w."""
+    return math.sqrt(squared_distance(v, w))
+
+
+# Ou, de manière plus concise :
+
+def distance(v: Vector, w: Vector) -> float:
+    return magnitude(subtract(v, w))

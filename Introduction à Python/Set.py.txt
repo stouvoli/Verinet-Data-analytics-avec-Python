@@ -1,0 +1,10 @@
+s = set()
+s.add(1)
+s.add(2)
+# Vérification d'appartenance
+print(2 in s)  # Output: True
+# Suppression des doublons
+item_list = [1, 2, 3, 1, 2, 3]
+item_set = set(item_list)
+distinct_item_list = list(item_set)
+print(distinct_item_list)  # Output: [1, 2, 3]

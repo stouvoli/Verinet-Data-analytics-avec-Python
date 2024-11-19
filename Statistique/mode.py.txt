@@ -1,0 +1,7 @@
+def mode(x: list[float]) -> list[float]:
+  """Retourne une liste, car il peut y avoir plus d'un mode"""
+  counts = Counter(x)
+  max_count = max(counts.values())
+  return [x_i for x_i, count in counts.items() if count == max_count]
+
+assert set(mode(num_friends)) == {1, 6}

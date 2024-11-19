@@ -1,0 +1,20 @@
+def difference_quotient(f, x, h):
+  return (f(x + h) - f(x)) / h
+
+def square(x):
+return x * x
+
+def derivative(x):
+return 2 * x
+
+xs = range(-10, 11)
+actuals = [derivative(x) for x in xs]
+estimates = [difference_quotient(square, x, h=0.001) for x in xs]
+
+# Graphique pour montrer que les valeurs sont presque identiques
+import matplotlib.pyplot as plt
+plt.title("Dérivées vraies vs estimées")
+plt.plot(xs, actuals, 'rx', label='Vraies')  # x rouges
+plt.plot(xs, estimates, 'b+', label='Estimées')  # + bleus
+plt.legend(loc=9)
+plt.show()

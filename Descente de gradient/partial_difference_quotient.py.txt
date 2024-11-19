@@ -1,0 +1,4 @@
+def partial_difference_quotient(f, v, i, h):
+  """Calcule le i-ème quotient des différences partiel de f en v."""
+  w = [v_j + (h if j == i else 0) for j, v_j in enumerate(v)]
+  return (f(w) - f(v)) / h

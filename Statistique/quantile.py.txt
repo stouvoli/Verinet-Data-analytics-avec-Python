@@ -1,0 +1,9 @@
+def quantile(xs: list[float], p: float) -> float:
+    """Retourne la valeur du quantile de rang p dans xs"""
+    p_index = int(p * len(xs))
+    return sorted(xs)[p_index]
+
+assert quantile(num_friends, 0.10) == 1
+assert quantile(num_friends, 0.25) == 3
+assert quantile(num_friends, 0.75) == 9
+assert quantile(num_friends, 0.90) == 13

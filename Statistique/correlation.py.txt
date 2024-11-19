@@ -1,0 +1,11 @@
+def correlation(xs: list[float], ys: list[float]) -> float:
+    """mesure dans quelle proportion xs et ys varient en tandem par rapport à leurs moyennes"""
+    stdev_x = standard_deviation(xs)
+    stdev_y = standard_deviation(ys)
+    if stdev_x > 0 and stdev_y > 0:
+        return covariance(xs, ys) / stdev_x / stdev_y
+    else:
+        return 0  # en l'absence de variation, la corrélation est à zéro
+
+assert 0.24 < correlation(num_friends, daily_minutes) < 0.25
+assert 0.24 < correlation(num_friends, daily_hours) < 0.25

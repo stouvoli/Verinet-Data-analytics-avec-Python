@@ -1,0 +1,18 @@
+def _median_odd(xs: list[float]) -> float:
+    """Si len(xs) est impair, la médiane est l'élément du milieu"""
+    return sorted(xs)[len(xs) // 2]
+
+def _median_even(xs: list[float]) -> float:
+    """Si len(xs) est pair, la médiane est la moyenne des éléments du milieu"""
+    sorted_xs = sorted(xs)
+    hi_midpoint = len(xs) // 2
+    return (sorted_xs[hi_midpoint - 1] + sorted_xs[hi_midpoint]) / 2
+
+def median(v: list[float]) -> float:
+    """Trouve la valeur médiane de v"""
+    return _median_even(v) if len(v) % 2 == 0 else _median_odd(v)
+
+assert median([1, 10, 2, 9, 5]) == 5
+assert median([1, 9, 2, 10]) == (2 + 9) / 2
+
+print(median(num_friends))  # 6

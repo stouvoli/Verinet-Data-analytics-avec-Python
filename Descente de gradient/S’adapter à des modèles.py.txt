@@ -1,0 +1,17 @@
+from linear_algebra import vector_mean
+import random
+
+# Commencer avec des valeurs aléatoires pour la pente et l'ordonnée à l'origine
+theta = [random.uniform(-1, 1), random.uniform(-1, 1)]
+learning_rate = 0.001
+
+for epoch in range(5000):
+  # Calculer la moyenne des gradients
+  grad = vector_mean([linear_gradient(x, y, theta) for x, y in inputs])
+  # Faire un pas dans la direction opposée au gradient
+  theta = gradient_step(theta, grad, -learning_rate)
+  print(epoch, theta)
+
+slope, intercept = theta
+assert 19.9 < slope < 20.1, "La pente devrait être d'environ 20"
+assert 4.9 < intercept < 5.1, "L'ordonnée à l'origine devrait être d'environ 5"

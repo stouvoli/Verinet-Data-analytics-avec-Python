@@ -1,0 +1,7 @@
+def linear_gradient(x, y, theta):
+  slope, intercept = theta
+  predicted = slope * x + intercept  # Prédiction du modèle
+  error = (predicted - y)            # L'erreur est (prévu - réel)
+  squared_error = error ** 2         # Nous minimisons l'erreur quadratique
+  grad = [2 * error * x, 2 * error]   # En utilisant son gradient
+  return grad

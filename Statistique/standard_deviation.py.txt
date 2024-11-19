@@ -1,0 +1,7 @@
+import math
+
+def standard_deviation(xs: list[float]) -> float:
+    """L'écart-type est la racine carrée de la variance"""
+    return math.sqrt(variance(xs))
+
+assert 9.02 < standard_deviation(num_friends) < 9.04

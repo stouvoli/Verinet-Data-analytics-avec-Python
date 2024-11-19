@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+# Définir les paramètres de la distribution
+mu = 0  # Moyenne
+sigma = 1  # Écart-type
+
+# Générer des valeurs x
+x = np.linspace(mu - 3*sigma, mu + 3*sigma, 100)
+
+# Calculer la PDF
+y = norm.pdf(x, mu, sigma)
+
+# Tracer la courbe
+plt.plot(x, y)
+plt.title('Distribution Normale (μ=0, σ=1)')
+plt.xlabel('x')
+plt.ylabel('Densité de probabilité')
+plt.show()

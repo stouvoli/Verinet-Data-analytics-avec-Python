@@ -1,0 +1,16 @@
+# Mettre fichier linear_algebra.py dans le dossier courant
+from linear_algebra import sum_of_squares
+
+def de_mean(xs: list[float]) -> list[float]:
+    """Fait glisser xs en soustrayant sa moyenne"""
+    x_bar = mean(xs)
+    return [x - x_bar for x in xs]
+
+def variance(xs: list[float]) -> float:
+    """Presque la moyenne des carrés des écarts à la moyenne"""
+    assert len(xs) >= 2, "La variance nécessite au moins deux éléments"
+    n = len(xs)
+    deviations = de_mean(xs)
+    return sum_of_squares(deviations) / (n - 1)
+
+assert 81.54 < variance(num_friends) < 81.55

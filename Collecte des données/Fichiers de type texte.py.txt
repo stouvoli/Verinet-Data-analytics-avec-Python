@@ -1,0 +1,12 @@
+# 'r' (read-only) signifie lecture seule. Valeur par défaut.
+file_for_reading = open('reading_file.txt', 'r')
+file_for_reading2 = open('reading_file.txt')
+
+# 'w' (write) signifie écrire. Détruit le fichier s'il existait déjà !
+file_for_writing = open('writing_file.txt', 'w')
+
+# 'a' (append) signifie ajouter à la fin du fichier existant
+file_for_appending = open('appending_file.txt', 'a')
+
+# n'oubliez pas de fermer les fichiers quand vous avez fini
+file_for_writing.close()

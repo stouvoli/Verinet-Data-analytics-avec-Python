@@ -1,0 +1,24 @@
+from typing import Optional
+import re
+
+def try_parse_row(row: List[str]) -> Optional[StockPrice]:
+  symbol, date_, closing_price_ = row
+  # le symbole de l’action doit figurer entièrement en majuscules
+  if not re.match(r"^[A-Z]+$", symbol):
+    return None
+  try:
+    date = parse(date_).date()
+  except ValueError:
+    return None
+  try:
+    closing_price = float(closing_price_)
+  except ValueError:
+    return None
+  return StockPrice(symbol, date, closing_price)
+
+# doit retourner None pour les erreurs
+assert try_parse_row(["MSFT0", "2018-12-14", "106.03"]) is None
+assert try_parse_row(["MSFT", "2018-12--14", "106.03"]) is None
+assert try_parse_row(["MSFT", "2018-12-14", "x"]) is None
+# doit retourner la même chose qu’avant si les données sont correctes
+assert try_parse_row(["MSFT", "2018-12-14", "106.03"]) == stock

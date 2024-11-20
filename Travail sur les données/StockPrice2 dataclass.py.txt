@@ -1,0 +1,14 @@
+from dataclasses import dataclass
+
+@dataclass
+class StockPrice2:
+  symbol: str
+  date: datetime.date
+  closing_price: float
+  def is_high_tech(self) -> bool:
+    """c’est une classe ; nous pouvons donc aussi ajouter des méthodes"""
+    return self.symbol in ['MSFT', 'GOOG', 'FB', 'AMZN', 'AAPL']
+price2 = StockPrice2('MSFT', datetime.date(2018, 12, 14), 106.03)
+assert price2.symbol == 'MSFT'
+assert price2.closing_price == 106.03
+assert price2.is_high_tech()

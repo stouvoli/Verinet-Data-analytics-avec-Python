@@ -1,0 +1,8 @@
+joelgrus@gmail.com
+joel@m.datasciencester.com
+john.doe@yahoo.fr
+support@amazon.co.uk
+no-reply@newsletter.example.com
+info@mydomain.org
+admin@server1.mydomain.net
+test.user+alias@hotmail.com

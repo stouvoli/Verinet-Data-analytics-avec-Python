@@ -1,0 +1,11 @@
+Y = TypeVar('Y') # type générique pour les variables de sortie
+def train_test_split(xs: List[X], ys: List[Y],test_pct: float) -> Tuple[List[X], List[X], List[Y], List[Y]]:
+  """Créer un ensemble d’apprentissage et un de test en les associant
+  aux valeurs de sortie correspondantes."""
+  # générer les index et les séparer
+  idxs = [i for i in range(len(xs))]
+  train_idxs, test_idxs = split_data(idxs, 1 - test_pct)
+  return ([xs[i] for i in train_idxs], # x_train
+  [xs[i] for i in test_idxs], # x_test
+  [ys[i] for i in train_idxs], # y_train
+  [ys[i] for i in test_idxs]) # y_test

@@ -1,0 +1,8 @@
+from typing import List
+from linear_algebra import Matrix, Vector, make_matrix
+def correlation_matrix(data: List[Vector]) -> Matrix:
+ """Retourne la matrice carrée dont l’entrée de rang (i,j) est la
+ corrélation entre les colonnes i et j des données."""
+ def correlation_ij(i: int, j: int) -> float:
+   return correlation(data[i], data[j])
+ return make_matrix(len(data), len(data), correlation_ij)

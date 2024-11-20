@@ -1,0 +1,15 @@
+# egrep.py
+
+import sys, re
+
+# sys.argv est la liste des arguments de ligne de commande
+# sys.argv[0] est le nom du programme
+# sys.argv[1] sera la regex spécifiée pour la ligne de commande
+regex = sys.argv[1]
+
+# pour chaque ligne passée dans le script
+for line in sys.stdin:
+
+    # si elle correspond à la regex, l'écrire dans stdout
+    if re.search(regex, line):
+        sys.stdout.write(line)

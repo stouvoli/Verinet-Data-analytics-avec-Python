@@ -1,0 +1,9 @@
+xs = [x for x in range(1000)] # xs sont 1 ... 1000
+ys = [2 * x for x in xs] # chaque y_i vaut deux fois x_i
+x_train, x_test, y_train, y_test = train_test_split(xs, ys, 0.25)
+# vérifier que les proportions sont correctes
+assert len(x_train) == len(y_train) == 750
+assert len(x_test) == len(y_test) == 250
+# vérifier que les données correspondantes sont correctement appariées
+assert all(y == 2 * x for x, y in zip(x_train, y_train))
+assert all(y == 2 * x for x, y in zip(x_test, y_test))

@@ -1,0 +1,17 @@
+def rescale(data: List[Vector]) -> List[Vector]:
+  """Change l’échelle des entrées, de sorte que chaque position ait pour
+  espérance 0 et pour écart-type 1.
+  Ignore les positions dont l’écart-type est de 0."""
+  dim = len(data[0])
+  means, stdevs = scale(data)
+  # faire une copie de chaque vecteur
+  rescaled = [v[:] for v in data]
+  for v in rescaled:
+    for i in range(dim):
+      if stdevs[i] > 0:
+        v[i] = (v[i] - means[i]) / stdevs[i]
+  return rescaled
+
+means, stdevs = scale(rescale(vectors))
+assert means == [0, 0, 1]
+assert stdevs == [1, 1, 0]

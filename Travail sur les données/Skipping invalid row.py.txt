@@ -1,0 +1,10 @@
+import csv
+data: List[StockPrice] = []
+with open("comma_delimited_stock_prices.csv") as f:
+  reader = csv.reader(f)
+  for row in reader:
+    maybe_stock = try_parse_row(row)
+    if maybe_stock is None:
+      print(f"skipping invalid row: {row}")
+    else:
+      data.append(maybe_stock)

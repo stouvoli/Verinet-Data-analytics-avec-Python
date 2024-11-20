@@ -1,0 +1,6 @@
+from typing import List
+from collections import defaultdict
+# collecter les cours par symbole
+prices: Dict[str, List[StockPrice]] = defaultdict(list)
+for sp in data:
+  prices[sp.symbol].append(sp)

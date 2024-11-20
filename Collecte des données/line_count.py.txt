@@ -1,0 +1,7 @@
+# line_count.py
+import sys
+count = 0
+for line in sys.stdin:
+    count += 1
+# l'impression est redirigée vers sys.stdout
+print(count)

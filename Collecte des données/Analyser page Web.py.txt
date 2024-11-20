@@ -1,0 +1,29 @@
+from bs4 import BeautifulSoup
+import requests
+
+# URL de la page Web à récupérer
+url = "https://raw.githubusercontent.com/joelgrus/data/master/getting-data.html"
+
+# Récupérer la page Web
+html = requests.get(url).text
+
+# Analyser la page Web avec Beautiful Soup
+soup = BeautifulSoup(html, 'html5lib')
+
+# Trouver la première balise <p>
+first_paragraph = soup.find('p')
+
+# Obtenir le texte associé à la balise
+first_paragraph_text = soup.p.text
+
+# Extraire les attributs d'une balise
+first_paragraph_id = soup.p['id']
+
+# Récupérer plusieurs balises
+all_paragraphs = soup.find_all('p')
+
+# Chercher des balises affichant une classe particulière
+important_paragraphs = soup('p', {'class': 'important'})
+
+# Chercher tous les éléments <span> contenus dans un élément <div>
+spans_inside_divs = [span for div in soup('div') for span in div('span')]

@@ -1,0 +1,18 @@
+import json
+
+# Chaîne de caractères représentant un objet JSON
+serialized = """
+{
+  "title": "Data Science Book",
+  "author": "Joel Grus",
+  "publicationYear": 2019,
+  "topics": ["data", "science", "data science"]
+}
+"""
+
+# Analyser le JSON pour créer un dictionnaire Python
+deserialized = json.loads(serialized)
+
+# Vérifier le contenu du dictionnaire
+assert deserialized["publicationYear"] == 2019
+assert "data science" in deserialized["topics"]

@@ -1,0 +1,14 @@
+def pct_change(yesterday: StockPrice, today: StockPrice) -> float:
+  return today.closing_price / yesterday.closing_price - 1
+
+class DailyChange(NamedTuple):
+  symbol: str
+  date: datetime.date
+  pct_change: float
+  
+def day_over_day_changes(prices: List[StockPrice]) -> List[DailyChange]:
+  """considère que les cours pour chaque titre sont dans l’ordre"""
+  return [DailyChange(symbol=today.symbol,
+  date=today.date,
+  pct_change=pct_change(yesterday, today))
+  for yesterday, today in zip(prices, prices[1:])]

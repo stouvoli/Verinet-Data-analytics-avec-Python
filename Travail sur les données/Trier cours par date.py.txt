@@ -1,0 +1,3 @@
+# trier les cours par date
+prices = {symbol: sorted(symbol_prices) for symbol, symbol_prices 
+          in prices.items()}

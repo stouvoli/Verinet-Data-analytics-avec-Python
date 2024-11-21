@@ -1,0 +1,17 @@
+import glob, re
+# modifiez le chemin d’accès avec la configuration de vos répertoires
+path = 'spam_data/*/*'
+data: List[Message] = []
+# glob.glob retourne chaque nom de fichier qui correspond au masque de
+# chemin fourni en entrée.
+for filename in glob.glob(path):
+  is_spam = "ham" not in filename
+  # des caractères déchets sont présents dans les courriels
+  # L’instruction errors='ignore'
+  # les ignore au lieu de lever une exception.
+  with open(filename, errors='ignore') as email_file:
+    for line in email_file:
+      if line.startswith("Subject:"):
+        subject = line.lstrip("Subject: ")
+        data.append(Message(subject, is_spam))
+        break # fini pour ce fichier

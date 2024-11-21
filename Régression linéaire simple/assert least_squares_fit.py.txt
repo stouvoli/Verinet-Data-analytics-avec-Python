@@ -1,0 +1,4 @@
+x = [i for i in range(-100, 110, 10)]
+y = [3 * i - 5 for i in x]
+# doit trouver que y = 3x - 5
+assert least_squares_fit(x, y) == (-5, 3)

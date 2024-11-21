@@ -1,0 +1,8 @@
+def p_spam_given_token(token: str, model: NaiveBayesClassifier) -> float:
+  # Mieux vaut éviter d’appeler des méthodes privées, mais c’est pour
+  # la bonne cause.
+  prob_if_spam, prob_if_ham = model._probabilities(token)
+  return prob_if_spam / (prob_if_spam + prob_if_ham)
+words = sorted(model.tokens, key=lambda t: p_spam_given_token(t, model))
+print("spammiest_words", words[-10:])
+print("hammiest_words", words[:10])

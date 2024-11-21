@@ -1,0 +1,7 @@
+from typing import Set
+import re
+def tokenize(text: str) -> Set[str]:
+  text = text.lower() # convertir en minuscules
+  all_words = re.findall("[a-z0-9']+", text) # extraire les mots
+  return set(all_words) # supprimer les doublons
+assert tokenize("Data Science is science") == {"data", "science", "is"}

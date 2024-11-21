@@ -1,0 +1,19 @@
+    def predict(self, text: str) -> float:
+      text_tokens = tokenize(text)
+      log_prob_if_spam = log_prob_if_ham = 0.0
+      # itérer sur chaque mot de notre vocabulaire
+      for token in self.tokens:
+        prob_if_spam, prob_if_ham = self._probabilities(token)
+        # Si *token* apparaît dans le message,
+        # ajouter le log de la probabilité de son occurrence.
+        if token in text_tokens:
+          log_prob_if_spam += math.log(prob_if_spam)
+          log_prob_if_ham += math.log(prob_if_ham)
+        # Sinon, ajouter le log de la probabilité de sa non-occurrence.
+        # qui correspond à log(1-probabilité d’occurrence)
+        else:
+          log_prob_if_spam += math.log(1.0 - prob_if_spam)
+          log_prob_if_ham += math.log(1.0 - prob_if_ham)
+      prob_if_spam = math.exp(log_prob_if_spam)
+      prob_if_ham = math.exp(log_prob_if_ham)
+      return prob_if_spam / (prob_if_spam + prob_if_ham)

@@ -1,0 +1,9 @@
+from typing import Tuple
+from linear_algebra import Vector
+from statistics import correlation, standard_deviation, mean
+def least_squares_fit(x: Vector, y: Vector) -> Tuple[float, float]:
+  """Soit deux vecteurs x et y,
+  trouver les valeurs de moindres carrés de alpha et bêta."""
+  beta = correlation(x, y) * standard_deviation(y) / standard_deviation(x)
+  alpha = mean(y) - beta * mean(x)
+  return alpha, beta

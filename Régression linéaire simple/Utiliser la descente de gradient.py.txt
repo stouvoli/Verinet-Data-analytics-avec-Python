@@ -1,6 +1,6 @@
 import random
 import tqdm
-# from gradient_descent import gradient_step
+from gradient_descent import gradient_step
 num_epochs = 10000
 random.seed(0)
 # choisir une valeur aléatoire pour démarrer

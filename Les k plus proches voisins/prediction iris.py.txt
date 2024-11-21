@@ -1,0 +1,12 @@
+from typing import Tuple
+# suivre le nombre de fois que nous constatons (prédit, réel)
+confusion_matrix: Dict[Tuple[str, str], int] = defaultdict(int)
+num_correct = 0
+for iris in iris_test:
+  predicted = knn_classify(5, iris_train, iris.point)
+  actual = iris.label
+  if predicted == actual:
+    num_correct += 1
+  confusion_matrix[(predicted, actual)] += 1
+pct_correct = num_correct / len(iris_test)
+print(pct_correct, confusion_matrix)

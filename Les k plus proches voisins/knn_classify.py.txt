@@ -1,0 +1,12 @@
+from typing import NamedTuple
+from linear_algebra import Vector, distance
+class LabeledPoint(NamedTuple):
+  point: Vector
+  label: str
+def knn_classify(k: int,labeled_points: List[LabeledPoint],new_point: Vector) -> str:
+  # trier les points de données étiquetés du plus proche au plus éloigné
+  by_distance = sorted(labeled_points, key=lambda lp: distance(lp.point, new_point))
+  # chercher les labels pour le k le plus proche
+  k_nearest_labels = [lp.label for lp in by_distance[:k]]
+  # et les faire voter
+  return majority_vote(k_nearest_labels)

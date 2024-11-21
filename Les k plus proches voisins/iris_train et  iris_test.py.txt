@@ -1,0 +1,6 @@
+import random
+from machine_learning import split_data
+random.seed(12)
+iris_train, iris_test = split_data(iris_data, 0.70)
+assert len(iris_train) == 0.7 * 150
+assert len(iris_test) == 0.3 * 150

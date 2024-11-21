@@ -1,0 +1,13 @@
+def majority_vote(labels: List[str]) -> str:
+  """suppose que les labels sont triés du plus proche au plus éloigné"""
+  vote_counts = Counter(labels)
+  winner, winner_count = vote_counts.most_common(1)[0]
+  num_winners = len([count for count in vote_counts.values() if count == winner_count])
+  if num_winners == 1:
+    # un seul gagnant bien défini ; on le retourne
+    return winner
+  else:
+    # recommencer en éliminant le plus éloigné
+    return majority_vote(labels[:-1])
+# égalité ; examiner les quatre premiers, puis 'b'
+assert majority_vote(['a', 'b', 'c', 'b', 'a']) == 'b'

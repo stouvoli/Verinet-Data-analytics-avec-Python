@@ -1,0 +1,10 @@
+from statistics import de_mean
+def total_sum_of_squares(y: Vector) -> float:
+  """variation totale du carré des y_i à partir de leur espérance"""
+  return sum(v ** 2 for v in de_mean(y))
+def r_squared(alpha: float, beta: float, x: Vector, y: Vector) -> float:
+  """Fraction de la variation de y capturée par le modèle, qui est égale
+  à 1 - la fraction de variation de y non capturée par le modèle."""
+  return 1.0 - (sum_of_sqerrors(alpha, beta, x, y)/ total_sum_of_squares(y))
+rsq = r_squared(alpha, beta, num_friends_good, daily_minutes_good)
+assert 0.328 < rsq < 0.330

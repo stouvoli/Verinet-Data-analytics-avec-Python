@@ -1,0 +1,5 @@
+from typing import Iterator, Tuple
+def wc_mapper(document: str) -> Iterator[Tuple[str, int]]:
+  """pour chaque mot du document, émettre (mot, 1)"""
+  for word in tokenize(document):
+    yield (word, 1)

@@ -1,0 +1,4 @@
+from typing import List
+def negative_log_likelihood(xs: List[Vector], ys: List[float], beta: Vector) -> float:
+  return sum(_negative_log_likelihood(x, y, beta)
+  for x, y in zip(xs, ys))

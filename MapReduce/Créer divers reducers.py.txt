@@ -1,0 +1,8 @@
+sum_reducer = values_reducer(sum)
+max_reducer = values_reducer(max)
+min_reducer = values_reducer(min)
+count_distinct_reducer = values_reducer(lambda values: len(set(values)))
+assert sum_reducer("key", [1, 2, 3, 3]) == ("key", 9)
+assert min_reducer("key", [1, 2, 3, 3]) == ("key", 1)
+assert max_reducer("key", [1, 2, 3, 3]) == ("key", 3)
+assert count_distinct_reducer("key", [1, 2, 3, 3]) == ("key", 3)

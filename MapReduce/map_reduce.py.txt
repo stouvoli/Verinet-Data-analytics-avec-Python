@@ -1,0 +1,8 @@
+def map_reduce(inputs: Iterable, mapper: Mapper, reducer: Reducer) -> List[KV]:
+  """Exécuter MapReduce sur les entrées en utilisant le Mapper
+  et le Reducer."""
+  collector = defaultdict(list)
+  for input in inputs:
+    for key, value in mapper(input):
+      collector[key].append(value)
+  return [output for key, values in collector.items() for output in reducer(key, values)]

@@ -1,0 +1,9 @@
+random.seed(12) # pour obtenir les mêmes résultats que moi
+clusterer = KMeans(k=3)
+clusterer.train(inputs)
+means = sorted(clusterer.means) # tri du test unitaire
+assert len(means) == 3
+# contrôler que les moyennes sont proches de ce qui est attendu
+assert squared_distance(means[0], [-44, 5]) < 1
+assert squared_distance(means[1], [-16, -10]) < 1
+assert squared_distance(means[2], [18, 20]) < 1

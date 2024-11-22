@@ -1,0 +1,9 @@
+from typing import Callable, Iterable, Any, Tuple
+# une paire clé-valeur est juste un 2-tuple
+KV = Tuple[Any, Any]
+# Un Mapper est une fonction qui retourne un élément itérable
+# de paires clé-valeur.
+Mapper = Callable[..., Iterable[KV]]
+# Un Reducer est une fonction qui accepte une clé et un élément itérable
+# de valeurs et retourne une paire clé-valeur.
+Reducer = Callable[[Any, Iterable], KV]

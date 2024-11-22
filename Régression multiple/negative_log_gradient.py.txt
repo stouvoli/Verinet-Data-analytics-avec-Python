@@ -1,0 +1,14 @@
+from linear_algebra import vector_sum
+def _negative_log_partial_j(x: Vector, y: float,beta: Vector, j: int) -> float:
+  """La dérivé partielle de rang j pour un point de données distinct.
+  Ici i est l’index du point de données."""
+  return -(y - logistic(dot(x, beta))) * x[j]
+def _negative_log_gradient(x: Vector, y: float, beta: Vector) -> Vector:
+  """le gradient d'un point de données distinct"""
+  return [_negative_log_partial_j(x, y, beta, j)
+  for j in range(len(beta))]
+def negative_log_gradient(xs: List[Vector],
+  ys: List[float],
+  beta: Vector) -> Vector:
+  return vector_sum([_negative_log_gradient(x, y, beta)
+  for x, y in zip(xs, ys)])

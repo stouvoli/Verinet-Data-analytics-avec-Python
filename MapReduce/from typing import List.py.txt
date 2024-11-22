@@ -1,0 +1,9 @@
+from typing import List
+from collections import defaultdict
+def word_count(documents: List[str]) -> List[Tuple[str, int]]:
+  """compter les mots dans les documents à l’aide de MapReduce"""
+  collector = defaultdict(list) # lieu de stockage des valeurs groupées
+  for document in documents:
+    for word, count in wc_mapper(document):
+      collector[word].append(count)
+    return [output for word, counts in collector.items() for output in wc_reducer(word, counts)]

@@ -1,0 +1,6 @@
+from simple_linear_regression import total_sum_of_squares
+def multiple_r_squared(xs: List[Vector], ys: Vector,beta: Vector) -> float:
+  sum_of_squared_errors = sum(error(x, y, beta) ** 2
+  for x, y in zip(xs, ys))
+  return 1.0 - sum_of_squared_errors / total_sum_of_squares(ys)
+assert 0.67 < multiple_r_squared(inputs, daily_minutes_good, beta) < 0.6

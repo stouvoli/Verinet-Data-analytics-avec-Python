@@ -1,0 +1,9 @@
+from typing import List
+from linear_algebra import vector_mean
+def cluster_means(k: int, inputs: List[Vector], assignments: List[int]) -> List[Vector]:
+  # clusters[i] contient les entrées dont l’affectation est i
+  clusters = [[] for i in range(k)]
+  for input, assignment in zip(inputs, assignments):
+    clusters[assignment].append(input)
+  # si un groupe est vide, utiliser simplement un point aléatoire.
+  return [vector_mean(cluster) if cluster else random.choice(inputs) for cluster in clusters]

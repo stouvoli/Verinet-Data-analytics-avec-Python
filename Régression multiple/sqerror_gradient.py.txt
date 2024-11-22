@@ -1,0 +1,4 @@
+def sqerror_gradient(x: Vector, y: float, beta: Vector) -> Vector:
+  err = error(x, y, beta)
+  return [2 * err * x_i for x_i in x]
+assert sqerror_gradient(x, y, beta) == [-12, -24, -36]

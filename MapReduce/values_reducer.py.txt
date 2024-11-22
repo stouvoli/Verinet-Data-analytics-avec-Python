@@ -1,0 +1,5 @@
+def values_reducer(values_fn: Callable) -> Reducer:
+  """retourner un Reducer qui applique fn_val à ses valeurs"""
+  def reduce(key, values: Iterable) -> KV:
+    return (key, values_fn(values))
+  return reduce

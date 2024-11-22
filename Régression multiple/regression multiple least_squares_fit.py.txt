@@ -2,7 +2,7 @@ import random
 import tqdm
 from linear_algebra import vector_mean
 from gradient_descent import gradient_step
-def least_squares_fit(xs: List[Vector],ys: List[float],learning_rate: float = 0.001,num_steps: int = 1000,taille_lot: int = 1) -> Vector:
+def least_squares_fit(xs: List[Vector],ys: List[float],learning_rate: float = 0.001,num_steps: int = 1000,batch_size: int = 1) -> Vector:
   """Rechercher le bêta qui minimise la somme des erreurs au carré
   en considérant le modèle y = dot(x, beta)."""
   # commencer avec un essai aléatoire

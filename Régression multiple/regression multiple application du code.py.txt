@@ -1,9 +1,10 @@
 from statistics import daily_minutes_good
 from gradient_descent import gradient_step
+from multiple_regression import inputs
 random.seed(0)
 # j’ai utilisé un mode essai-erreur pour choisir num_iters et step_size
 # cela devrait fonctionner un moment
-inputs = [(x, 20 * x + 5) for x in range(-50, 50)]
+
 learning_rate = 0.001
 beta = least_squares_fit(inputs, daily_minutes_good, learning_rate, 5000, 25)
 assert 30.50 < beta[0] < 30.70 # constante

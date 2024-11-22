@@ -1,0 +1,4 @@
+from typing import Iterable
+def wc_reducer(word: str, counts: Iterable[int]) -> Iterator[Tuple[str, int]]:
+  """faire la somme des compteurs pour un mot"""
+  yield (word, sum(counts))

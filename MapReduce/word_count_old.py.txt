@@ -1,0 +1,8 @@
+from typing import List
+from collections import Counter
+def tokenize(document: str) -> List[str]:
+  """diviser au niveau des espaces"""
+  return document.split()
+def word_count_old(documents: List[str]):
+  """compter les mots sans utiliser MapReduce"""
+  return Counter(word for document in documents for word in tokenize(document))

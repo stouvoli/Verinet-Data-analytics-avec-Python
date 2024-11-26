@@ -1,0 +1,3 @@
+def mean(xs: list[float]) -> float:
+  return sum(xs) / len(xs)
+print(mean(num_friends))  # 7.333333

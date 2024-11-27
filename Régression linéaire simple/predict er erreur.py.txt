@@ -1,7 +1,0 @@
-def predict(alpha: float, beta: float, x_i: float) -> float:
-  return beta * x_i + alpha
-
-def erreur(alpha: float, beta: float, x_i: float, y_i: float) -> float:
-  """L’erreur de la prédiction beta * x_i + alpha
-  quand la valeur réelle est y_i."""
-  return predict(alpha, beta, x_i) - y_i

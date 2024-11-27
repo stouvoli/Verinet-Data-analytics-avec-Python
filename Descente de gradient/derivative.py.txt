@@ -2,10 +2,10 @@ def difference_quotient(f, x, h):
   return (f(x + h) - f(x)) / h
 
 def square(x):
-return x * x
+  return x * x
 
 def derivative(x):
-return 2 * x
+  return 2 * x
 
 xs = range(-10, 11)
 actuals = [derivative(x) for x in xs]

@@ -1,0 +1,3 @@
+from linear_algebra import Vector
+def num_differences(v1: Vector, v2: Vector) -> int:
+  assert len(v1) == len(v2)

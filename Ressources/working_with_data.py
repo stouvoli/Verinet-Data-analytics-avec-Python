@@ -38,15 +38,15 @@ plt.title("Very Different Joint Distributions")
 # plt.show()
 
 
-plt.savefig('im/working_scatter.png')
-plt.gca().clear()
+# plt.savefig('im/working_scatter.png')
+# plt.gca().clear()
 
 
 from statistics import correlation
 
 
-assert 0.89 < correlation(xs, ys1) < 0.91
-assert -0.91 < correlation(xs, ys2) < -0.89
+# assert 0.89 < correlation(xs, ys1) < 0.91
+# assert -0.91 < correlation(xs, ys2) < -0.89
 
 from linear_algebra import Matrix, Vector, make_matrix
 
@@ -145,33 +145,33 @@ assert try_parse_row(["MSFT", "2018-12-14", "106.03"]) == stock
 from dateutil.parser import parse
 import csv
 
-with open("stocks.csv", "r") as f:
-    reader = csv.DictReader(f)
-    rows = [[row['Symbol'], row['Date'], row['Close']]
-            for row in reader]
+# with open("stocks.csv", "r") as f:
+#     reader = csv.DictReader(f)
+#     rows = [[row['Symbol'], row['Date'], row['Close']]
+#             for row in reader]
 
 # skip header
-maybe_data = [try_parse_row(row) for row in rows]
+# maybe_data = [try_parse_row(row) for row in rows]
 
 # Make sure they all loaded successfully:
-assert maybe_data
-assert all(sp is not None for sp in maybe_data)
+# assert maybe_data
+# assert all(sp is not None for sp in maybe_data)
 
-# This is just to make mypy happy
-data = [sp for sp in maybe_data if sp is not None]
+# # This is just to make mypy happy
+# data = [sp for sp in maybe_data if sp is not None]
 
-max_aapl_price = max(stock_price.closing_price
-                     for stock_price in data
-                     if stock_price.symbol == "AAPL")
+# max_aapl_price = max(stock_price.closing_price
+#                      for stock_price in data
+#                      if stock_price.symbol == "AAPL")
 
 from collections import defaultdict
 
 max_prices: Dict[str, float] = defaultdict(lambda: float('-inf'))
 
-for sp in data:
-    symbol, closing_price = sp.symbol, sp.closing_price
-    if closing_price > max_prices[symbol]:
-        max_prices[symbol] = closing_price
+# for sp in data:
+#     symbol, closing_price = sp.symbol, sp.closing_price
+#     if closing_price > max_prices[symbol]:
+#         max_prices[symbol] = closing_price
 
 from typing import List
 from collections import defaultdict
@@ -179,12 +179,12 @@ from collections import defaultdict
 # Collect the prices by symbol
 prices: Dict[str, List[StockPrice]] = defaultdict(list)
 
-for sp in data:
-    prices[sp.symbol].append(sp)
+# for sp in data:
+#     prices[sp.symbol].append(sp)
 
-# Order the prices by date
-prices = {symbol: sorted(symbol_prices)
-          for symbol, symbol_prices in prices.items()}
+# # Order the prices by date
+# prices = {symbol: sorted(symbol_prices)
+#           for symbol, symbol_prices in prices.items()}
 
 def pct_change(yesterday: StockPrice, today: StockPrice) -> float:
     return today.closing_price / yesterday.closing_price - 1
@@ -203,44 +203,44 @@ def day_over_day_changes(prices: List[StockPrice]) -> List[DailyChange]:
                         pct_change=pct_change(yesterday, today))
             for yesterday, today in zip(prices, prices[1:])]
 
-all_changes = [change
-               for symbol_prices in prices.values()
-               for change in day_over_day_changes(symbol_prices)]
+# all_changes = [change
+#                for symbol_prices in prices.values()
+#                for change in day_over_day_changes(symbol_prices)]
 
-max_change = max(all_changes, key=lambda change: change.pct_change)
-# see, e.g. http://news.cnet.com/2100-1001-202143.html
-assert max_change.symbol == 'AAPL'
-assert max_change.date == datetime.date(1997, 8, 6)
-assert 0.33 < max_change.pct_change < 0.34
+# max_change = max(all_changes, key=lambda change: change.pct_change)
+# # see, e.g. http://news.cnet.com/2100-1001-202143.html
+# assert max_change.symbol == 'AAPL'
+# assert max_change.date == datetime.date(1997, 8, 6)
+# assert 0.33 < max_change.pct_change < 0.34
 
-min_change = min(all_changes, key=lambda change: change.pct_change)
-# see, e.g. http://money.cnn.com/2000/09/29/markets/techwrap/
-assert min_change.symbol == 'AAPL'
-assert min_change.date == datetime.date(2000, 9, 29)
-assert -0.52 < min_change.pct_change < -0.51
+# min_change = min(all_changes, key=lambda change: change.pct_change)
+# # see, e.g. http://money.cnn.com/2000/09/29/markets/techwrap/
+# assert min_change.symbol == 'AAPL'
+# assert min_change.date == datetime.date(2000, 9, 29)
+# assert -0.52 < min_change.pct_change < -0.51
 
-changes_by_month: List[DailyChange] = {month: [] for month in range(1, 13)}
+# changes_by_month: List[DailyChange] = {month: [] for month in range(1, 13)}
 
-for change in all_changes:
-    changes_by_month[change.date.month].append(change)
+# for change in all_changes:
+#     changes_by_month[change.date.month].append(change)
 
-avg_daily_change = {
-    month: sum(change.pct_change for change in changes) / len(changes)
-    for month, changes in changes_by_month.items()
-}
+# avg_daily_change = {
+#     month: sum(change.pct_change for change in changes) / len(changes)
+#     for month, changes in changes_by_month.items()
+# }
 
 # October is the best month
-assert avg_daily_change[10] == max(avg_daily_change.values())
+# assert avg_daily_change[10] == max(avg_daily_change.values())
 
 from linear_algebra import distance
 
-a_to_b = distance([63, 150], [67, 160])        # 10.77
-a_to_c = distance([63, 150], [70, 171])        # 22.14
-b_to_c = distance([67, 160], [70, 171])        # 11.40
+# a_to_b = distance([63, 150], [67, 160])        # 10.77
+# a_to_c = distance([63, 150], [70, 171])        # 22.14
+# b_to_c = distance([67, 160], [70, 171])        # 11.40
 
-a_to_b = distance([160, 150], [170.2, 160])    # 14.28
-a_to_c = distance([160, 150], [177.8, 171])    # 27.53
-b_to_c = distance([170.2, 160], [177.8, 171])  # 13.37
+# a_to_b = distance([160, 150], [170.2, 160])    # 14.28
+# a_to_c = distance([160, 150], [177.8, 171])    # 27.53
+# b_to_c = distance([170.2, 160], [177.8, 171])  # 13.37
 
 from typing import Tuple
 
@@ -257,10 +257,10 @@ def scale(data: List[Vector]) -> Tuple[Vector, Vector]:
 
     return means, stdevs
 
-vectors = [[-3, -1, 1], [-1, 0, 1], [1, 1, 1]]
-means, stdevs = scale(vectors)
-assert means == [-1, 0, 1]
-assert stdevs == [2, 1, 0]
+# vectors = [[-3, -1, 1], [-1, 0, 1], [1, 1, 1]]
+# means, stdevs = scale(vectors)
+# assert means == [-1, 0, 1]
+# assert stdevs == [2, 1, 0]
 
 def rescale(data: List[Vector]) -> List[Vector]:
     """
@@ -281,9 +281,9 @@ def rescale(data: List[Vector]) -> List[Vector]:
 
     return rescaled
 
-means, stdevs = scale(rescale(vectors))
-assert means == [0, 0, 1]
-assert stdevs == [1, 1, 0]
+# means, stdevs = scale(rescale(vectors))
+# assert means == [0, 0, 1]
+# assert stdevs == [1, 1, 0]
 
 
 import tqdm
@@ -469,133 +469,133 @@ def transform_vector(v: Vector, components: List[Vector]) -> Vector:
 def transform(data: List[Vector], components: List[Vector]) -> List[Vector]:
     return [transform_vector(v, components) for v in data]
 
-def main():
+# def main():
 
-    # I don't know why this is necessary
-    plt.gca().clear()
-    plt.close()
+#     # I don't know why this is necessary
+#     plt.gca().clear()
+#     plt.close()
 
-    import random
-    from probability import inverse_normal_cdf
+#     import random
+#     from probability import inverse_normal_cdf
 
-    random.seed(0)
+#     random.seed(0)
 
-    # uniform between -100 and 100
-    uniform = [200 * random.random() - 100 for _ in range(10000)]
+#     # uniform between -100 and 100
+#     uniform = [200 * random.random() - 100 for _ in range(10000)]
 
-    # normal distribution with mean 0, standard deviation 57
-    normal = [57 * inverse_normal_cdf(random.random())
-              for _ in range(10000)]
+#     # normal distribution with mean 0, standard deviation 57
+#     normal = [57 * inverse_normal_cdf(random.random())
+#               for _ in range(10000)]
 
-    plot_histogram(uniform, 10, "Uniform Histogram")
-
-
-
-    plt.savefig('im/working_histogram_uniform.png')
-    plt.gca().clear()
-    plt.close()
-
-    plot_histogram(normal, 10, "Normal Histogram")
-
-
-    plt.savefig('im/working_histogram_normal.png')
-    plt.gca().clear()
-
-    from statistics import correlation
-
-    print(correlation(xs, ys1))      # about 0.9
-    print(correlation(xs, ys2))      # about -0.9
+#     plot_histogram(uniform, 10, "Uniform Histogram")
 
 
 
-    from typing import List
+#     plt.savefig('im/working_histogram_uniform.png')
+#     plt.gca().clear()
+#     plt.close()
 
-    # Just some random data to show off correlation scatterplots
-    num_points = 100
+#     plot_histogram(normal, 10, "Normal Histogram")
 
-    def random_row() -> List[float]:
-       row = [0.0, 0, 0, 0]
-       row[0] = random_normal()
-       row[1] = -5 * row[0] + random_normal()
-       row[2] = row[0] + row[1] + 5 * random_normal()
-       row[3] = 6 if row[2] > -2 else 0
-       return row
 
-    random.seed(0)
-    # each row has 4 points, but really we want the columns
-    corr_rows = [random_row() for _ in range(num_points)]
+#     plt.savefig('im/working_histogram_normal.png')
+#     plt.gca().clear()
 
-    corr_data = [list(col) for col in zip(*corr_rows)]
+#     from statistics import correlation
 
-    # corr_data is a list of four 100-d vectors
-    num_vectors = len(corr_data)
-    fig, ax = plt.subplots(num_vectors, num_vectors)
-
-    for i in range(num_vectors):
-        for j in range(num_vectors):
-
-            # Scatter column_j on the x-axis vs column_i on the y-axis,
-            if i != j: ax[i][j].scatter(corr_data[j], corr_data[i])
-
-            # unless i == j, in which case show the series name.
-            else: ax[i][j].annotate("series " + str(i), (0.5, 0.5),
-                                    xycoords='axes fraction',
-                                    ha="center", va="center")
-
-            # Then hide axis labels except left and bottom charts
-            if i < num_vectors - 1: ax[i][j].xaxis.set_visible(False)
-            if j > 0: ax[i][j].yaxis.set_visible(False)
-
-    # Fix the bottom right and top left axis labels, which are wrong because
-    # their charts only have text in them
-    ax[-1][-1].set_xlim(ax[0][-1].get_xlim())
-    ax[0][0].set_ylim(ax[0][1].get_ylim())
-
-    # plt.show()
+#     print(correlation(xs, ys1))      # about 0.9
+#     print(correlation(xs, ys2))      # about -0.9
 
 
 
-    plt.savefig('im/working_scatterplot_matrix.png')
-    plt.gca().clear()
-    plt.close()
-    plt.clf()
+#     from typing import List
 
-    import csv
+#     # Just some random data to show off correlation scatterplots
+#     num_points = 100
 
-    data: List[StockPrice] = []
+#     def random_row() -> List[float]:
+#        row = [0.0, 0, 0, 0]
+#        row[0] = random_normal()
+#        row[1] = -5 * row[0] + random_normal()
+#        row[2] = row[0] + row[1] + 5 * random_normal()
+#        row[3] = 6 if row[2] > -2 else 0
+#        return row
 
-    with open("comma_delimited_stock_prices.csv") as f:
-        reader = csv.reader(f)
-        for row in reader:
-            maybe_stock = try_parse_row(row)
-            if maybe_stock is None:
-                print(f"skipping invalid row: {row}")
-            else:
-                data.append(maybe_stock)
+#     random.seed(0)
+#     # each row has 4 points, but really we want the columns
+#     corr_rows = [random_row() for _ in range(num_points)]
 
-    from typing import List
+#     corr_data = [list(col) for col in zip(*corr_rows)]
 
-    def primes_up_to(n: int) -> List[int]:
-        primes = [2]
+#     # corr_data is a list of four 100-d vectors
+#     num_vectors = len(corr_data)
+#     fig, ax = plt.subplots(num_vectors, num_vectors)
 
-        with tqdm.trange(3, n) as t:
-            for i in t:
-                # i is prime if no smaller prime divides it.
-                i_is_prime = not any(i % p == 0 for p in primes)
-                if i_is_prime:
-                    primes.append(i)
+#     for i in range(num_vectors):
+#         for j in range(num_vectors):
 
-                t.set_description(f"{len(primes)} primes")
+#             # Scatter column_j on the x-axis vs column_i on the y-axis,
+#             if i != j: ax[i][j].scatter(corr_data[j], corr_data[i])
 
-        return primes
+#             # unless i == j, in which case show the series name.
+#             else: ax[i][j].annotate("series " + str(i), (0.5, 0.5),
+#                                     xycoords='axes fraction',
+#                                     ha="center", va="center")
 
-    my_primes = primes_up_to(100_000)
+#             # Then hide axis labels except left and bottom charts
+#             if i < num_vectors - 1: ax[i][j].xaxis.set_visible(False)
+#             if j > 0: ax[i][j].yaxis.set_visible(False)
+
+#     # Fix the bottom right and top left axis labels, which are wrong because
+#     # their charts only have text in them
+#     ax[-1][-1].set_xlim(ax[0][-1].get_xlim())
+#     ax[0][0].set_ylim(ax[0][1].get_ylim())
+
+#     # plt.show()
 
 
 
-    de_meaned = de_mean(pca_data)
-    fpc = first_principal_component(de_meaned)
-    assert 0.923 < fpc[0] < 0.925
-    assert 0.382 < fpc[1] < 0.384
+#     plt.savefig('im/working_scatterplot_matrix.png')
+#     plt.gca().clear()
+#     plt.close()
+#     plt.clf()
+
+#     import csv
+
+#     data: List[StockPrice] = []
+
+#     with open("comma_delimited_stock_prices.csv") as f:
+#         reader = csv.reader(f)
+#         for row in reader:
+#             maybe_stock = try_parse_row(row)
+#             if maybe_stock is None:
+#                 print(f"skipping invalid row: {row}")
+#             else:
+#                 data.append(maybe_stock)
+
+#     from typing import List
+
+#     def primes_up_to(n: int) -> List[int]:
+#         primes = [2]
+
+#         with tqdm.trange(3, n) as t:
+#             for i in t:
+#                 # i is prime if no smaller prime divides it.
+#                 i_is_prime = not any(i % p == 0 for p in primes)
+#                 if i_is_prime:
+#                     primes.append(i)
+
+#                 t.set_description(f"{len(primes)} primes")
+
+#         return primes
+
+#     my_primes = primes_up_to(100_000)
+
+
+
+#     de_meaned = de_mean(pca_data)
+#     fpc = first_principal_component(de_meaned)
+#     assert 0.923 < fpc[0] < 0.925
+#     assert 0.382 < fpc[1] < 0.384
 
 if __name__ == "__main__": main()

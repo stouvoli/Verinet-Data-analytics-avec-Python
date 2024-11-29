@@ -1,0 +1,8 @@
+from working_with_data import scale
+means, stdevs = scale(xs)
+beta_unscaled = [(beta[0]
+ - beta[1] * means[1] / stdevs[1]
+ - beta[2] * means[2] / stdevs[2]),
+ beta[1] / stdevs[1],
+ beta[2] / stdevs[2]]
+# [8.9, 1.6, -0.000288]

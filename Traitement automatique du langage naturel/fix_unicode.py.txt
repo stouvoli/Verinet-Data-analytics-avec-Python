@@ -1,0 +1,2 @@
+def fix_unicode(text: str) -> str:
+  return text.replace(u"\u2019", "'")

@@ -1,0 +1,11 @@
+def generate_using_trigrams() -> str:
+  current = random.choice(starts) # choisir un mot de départ aléatoirement
+  prev = "." # et le faire précéder d’un '.'
+  result = [current]
+  while True:
+    next_word_candidates = trigram_transitions[(prev, current)]
+    next_word = random.choice(next_word_candidates)
+    prev, current = current, next_word
+    result.append(current)
+    if current == ".":
+      return " ".join(result)

@@ -1,0 +1,13 @@
+import re
+from bs4 import BeautifulSoup
+import requests
+url = "https://www.oreilly.com/ideas/what-is-data-science"
+html = requests.get(url).text
+soup = BeautifulSoup(html, 'html5lib')
+# trouver les div de l’article
+content = soup.find("div", "main-post-radar-content")
+regex = r"[\w']+|[\.]" # correspond à un mot ou un point
+document = []
+for paragraph in content("p"):
+  words = re.findall(regex, fix_unicode(paragraph.text))
+  document.extend(words)

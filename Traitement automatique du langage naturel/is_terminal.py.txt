@@ -1,0 +1,2 @@
+def is_terminal(token: str) -> bool:
+  return token[0] != "_"

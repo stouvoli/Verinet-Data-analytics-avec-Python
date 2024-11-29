@@ -1,0 +1,4 @@
+from collections import defaultdict
+transitions = defaultdict(list)
+for prev, current in zip(document, document[1:]):
+  transitions[prev].append(current)

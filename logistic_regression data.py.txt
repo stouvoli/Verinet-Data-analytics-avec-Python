@@ -1,0 +1,5 @@
+from logistic_regression import data
+# chaque élément est [1, expérience, salaire]
+xs = [[1.0] + row[:2] for row in data]
+# chaque élément est premium
+ys = [row[2] for row in data]

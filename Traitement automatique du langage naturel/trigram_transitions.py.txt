@@ -1,0 +1,6 @@
+trigram_transitions = defaultdict(list)
+starts = []
+for prev, current, next in zip(document, document[1:], document[2:]):
+ if prev == ".": # si le mot précédent est un point
+  starts.append(current) # alors ceci est un mot de départ
+ trigram_transitions[(prev, current)].append(next)

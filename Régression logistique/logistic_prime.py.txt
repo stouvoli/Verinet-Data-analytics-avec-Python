@@ -1,0 +1,3 @@
+def logistic_prime(x: float) -> float:
+  y = logistic(x)
+  return y * (1 - y)

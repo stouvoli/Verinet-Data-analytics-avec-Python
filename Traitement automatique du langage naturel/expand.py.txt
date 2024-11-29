@@ -1,0 +1,17 @@
+def expand(grammar: Grammar, tokens: List[str]) -> List[str]:
+  for i, token in enumerate(tokens):
+    # s’il s'agit d'une unité terminale, l'ignorer
+    if is_terminal(token): continue
+      # Sinon, l'unité est non terminale,
+      # donc nous devons choisir son remplaçant au hasard.
+    replacement = random.choice(grammar[token])
+    if is_terminal(replacement):
+      tokens[i] = replacement
+    else:
+    # le remplacement peut être, par exemple, "_NP _VP"
+    # nous devons donc le diviser sur les espaces
+      tokens = tokens[:i] + replacement.split() + tokens[(i+1):]
+    # appel récursif sur la nouvelle liste d'éléments lexicaux
+    return expand(grammar, tokens)
+  # nous n'avons plus que des terminaisons donc nous avons terminé
+  return tokens

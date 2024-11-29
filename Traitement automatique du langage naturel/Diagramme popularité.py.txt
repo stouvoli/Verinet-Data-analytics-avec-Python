@@ -1,0 +1,14 @@
+from matplotlib import pyplot as plt
+def text_size(total: int) -> float:
+  """égale 8 si total vaut 0, 28 si total égale 200"""
+  return 8 + total / 200 * 20
+for word, job_popularity, resume_popularity in data:
+  plt.text(job_popularity, resume_popularity, word,
+  ha='center', va='center',
+  size=text_size(job_popularity + resume_popularity))
+  plt.xlabel("Popularité dans les offres")
+plt.ylabel("Popularité dans les CV")
+plt.axis([0, 100, 0, 100])
+plt.xticks([])
+plt.yticks([])
+plt.show()

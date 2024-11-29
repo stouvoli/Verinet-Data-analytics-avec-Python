@@ -1,0 +1,9 @@
+def generate_using_bigrams() -> str:
+  current = "." # signifie que le mot suivant commence une phrase
+  result = []
+  while True:
+    next_word_candidates = transitions[current] # bigrammes (current,_)
+    current = random.choice(next_word_candidates) # en choisir un
+    result.append(current) # l’ajouter à la fin des résultats
+    if current == ".":
+     return " ".join(result) # si "." c’est fini
